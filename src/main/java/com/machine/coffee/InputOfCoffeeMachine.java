@@ -14,7 +14,6 @@ import java.util.Iterator;
 import java.util.Map;
 
 public class InputOfCoffeeMachine {
-
     public Pair<CoffeeMachine, HashMap<String, Map<String, Long>>> TakeInput(String pathOfJson)
     {
         JSONParser jsonParser = new JSONParser();
