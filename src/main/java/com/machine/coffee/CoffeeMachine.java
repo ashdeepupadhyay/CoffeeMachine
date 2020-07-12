@@ -10,19 +10,22 @@ import java.util.concurrent.Executors;
 public class CoffeeMachine {
 
     ExecutorService pool;
-    int no_of_outlet;
+    int noOfOutlet;
     public HashMap<String, Long> ingredients=new HashMap<String, Long>();
 
     public CoffeeMachine(int no_of_outlet, HashMap<String, Long> ingredients)
     {
-        this.no_of_outlet=no_of_outlet;
+        this.noOfOutlet=no_of_outlet;
         this.ingredients = ingredients;
 
-        pool = Executors.newFixedThreadPool(no_of_outlet);
-        Executors.newFixedThreadPool(no_of_outlet);
+        pool = Executors.newFixedThreadPool(noOfOutlet);
+        Executors.newFixedThreadPool(noOfOutlet);
     }
 
-
+    /*
+    this function makes the beverage it reduces the ingredients from the total ingredients if and only if all ingredients
+    required are available then only it reduces it otherwise it prints that it is not possible to make that Beverage
+     */
     public void makeBeverage(String beverageName, Map<String, Long> ingredientsRequired)
     {
         Runnable r1 = new CoffeeTask(beverageName,ingredientsRequired,this);
